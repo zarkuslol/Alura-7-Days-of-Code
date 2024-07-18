@@ -35,14 +35,14 @@ data_with_removed_columns['VALOR_REEMBOLSADO'] = data_with_removed_columns['VALO
 before = data_with_removed_columns.memory_usage(deep=True)
 
 data_with_removed_columns['ANO'] = data_with_removed_columns['ANO'].astype('uint16')
-data_with_removed_columns['MES'] = data_with_removed_columns['ANO'].astype('uint8')
+data_with_removed_columns['MES'] = data_with_removed_columns['MES'].astype('uint8')
 object_columns = ['SENADOR', 'TIPO_DESPESA', 'FORNECEDOR', 'CPF', 'CNPJ']
 data_with_removed_columns[object_columns] = data_with_removed_columns[object_columns].apply(lambda x: x.astype('category'))
 data_with_removed_columns['VALOR_REEMBOLSADO'] = data_with_removed_columns['VALOR_REEMBOLSADO'].astype('float64')
 
 after = data_with_removed_columns.memory_usage(deep=True)
 
-print(data_with_removed_columns.info())
+print(data_with_removed_columns.head())
 print(f"Memory usage before:\n{before}\n")
 print(f"Memory usage after:\n{after}\n")
 
